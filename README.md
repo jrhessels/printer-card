@@ -17,13 +17,44 @@ A Home Assistant dashboard card for your 3D printer: a live camera image, print 
 
 ### HACS (recommended)
 
-1. Open **HACS** in Home Assistant.
-2. Click the three dots in the top right → **Custom repositories**.
-3. Add the URL of this repository and choose **Dashboard** as the type.
-4. Search for **Printer Card** in HACS and click **Download**.
-5. Refresh your browser (Ctrl+F5).
+[HACS](https://hacs.xyz) must already be installed in Home Assistant.
 
-HACS adds the resource for you, and you'll get a notification under **Settings → Updates** when a new version is released.
+**1. Add this repository to HACS**
+
+1. Open **HACS** from the Home Assistant sidebar.
+2. Click the **three dots** in the top right and choose **Custom repositories**.
+3. Fill in:
+   - **Repository**: `https://github.com/jrhessels/printer-card`
+   - **Type**: **Dashboard**
+4. Click **Add**, then close the window.
+
+**2. Download the card**
+
+1. Search for **Printer Card** in HACS.
+2. Open it and click **Download** in the bottom right.
+3. Confirm with **Download** again.
+4. Refresh your browser with **Ctrl+F5** (on a Mac: **Cmd+Shift+R**).
+
+HACS adds the resource to your dashboard for you, as a JavaScript module. You don't have to add it yourself.
+
+**3. Check that it works**
+
+Press **F12** and open the **Console** tab. You should see `PRINTER-CARD v1.0.0` (or a newer version). Then add the card to your dashboard, see [Configuration](#configuration).
+
+**Updates**
+
+HACS checks this repository for new releases. When there is one, you'll get a notification under **Settings → Updates**, just like for your other HACS components. Click **Update**, then refresh your browser with Ctrl+F5.
+
+### Switching from a manual installation to HACS
+
+Did you install the card by hand before? Do it in this order, so the card isn't loaded twice:
+
+1. Go to **Settings → Dashboards → three dots → Resources** and delete the old resource (`/local/printer-card/...`).
+2. Install the card through HACS as described above.
+3. Delete the `printer-card` folder from `config/www/`.
+4. Refresh your browser with Ctrl+F5.
+
+Your dashboard configuration stays the same: `type: custom:printer-card` keeps working.
 
 ### Manual
 
